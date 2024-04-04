@@ -12,17 +12,15 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
+
 SECRET_KEY = '23szcx4&aha^m_l^lwuf!vg%-prmg$j_by_c7le%k#6b(+u3k3'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -41,7 +39,6 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
-    'paypal.standard.ipn',
     'payment',
 ]
 
@@ -55,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_shop_tutorial.urls'
+ROOT_URLCONF = 'django_shop.urls'
 
 TEMPLATES = [
     {
@@ -75,17 +72,12 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_shop_tutorial.wsgi.application'
+WSGI_APPLICATION = 'django_shop.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# django-paypal settings
-PAYPAL_RECEIVER_EMAIL = 'dikeooel3ski-facilitator@gmail.com'
-PAYPAL_TEST = True
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -105,48 +97,16 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
     },
-    # 'filters': {
-    #     'special': {
-    #         '()': 'project.logging.SpecialFilter',
-    #         'foo': 'bar',
-    #     },
-    #     'require_debug_true': {
-    #         '()': 'django.utils.log.RequireDebugTrue',
-    #     },
-    # },
+
     'handlers': {
         'console': {
             'level': 'DEBUG',
-            # 'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },
-        # 'file': {
-        #     'level': 'DEBUG',
-        #     'class': 'logging.FileHandler',
-        #     'filename': 'mylog_test.log',
-        #     'formatter': 'verbose'
-        # },
 
-        # 'mail_admins': {
-        #     'level': 'ERROR',
-        #     'class': 'django.utils.log.AdminEmailHandler',
-        #     'filters': ['special']
-        # }
     },
     'loggers': {
-        # 'django': {
-        #     'handlers': ['console'],  # console or file
-        #     'propagate': True,
-        #     'level': 'DEBUG',
-        # },
-        # 'django.request': {
-        #     'handlers': ['console'],
-        #     'level': 'DEBUG',
-        #     'propagate': False,
-        # },
-        # For performance reasons, SQL logging is only enabled when settings.DEBUG is set to True
-        # ref. https://docs.djangoproject.com/en/1.11/topics/logging/#django-db-backends
         'django.db.backends': {
             'handlers': ['console'],
             'propagate': False,
@@ -157,8 +117,6 @@ LOGGING = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -176,8 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -190,8 +147,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 
